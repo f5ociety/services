@@ -20,6 +20,6 @@ jobs:
             ⚡️ ${{ github.actor }} сделал коммит:
             ${{ github.event.commits[0].message }}
             
-            ${{ github.repository }}
-            
             Изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            
+            Репозиторий: https://github.com/${{ github.repository }}
