@@ -18,9 +18,9 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             ⚡️ ${{ github.actor }} сделал коммит:
-            \`\`\`
+            ```
             ${{ github.event.commits[0].message }}
-            \`\`\`
+            ```
             
             Изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
             
