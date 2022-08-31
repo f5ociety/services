@@ -72,7 +72,7 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-          ❗️Требуется ревью для PR: - [${{ github.event.pull_request.title}}](${{ github.event.pull_request.html_url}})
+            ❗️ Требуется ревью для PR: - [${{ github.event.pull_request.title}}](${{ github.event.pull_request.html_url}})
           
       - name: Notify about push in main
         if: ${{ github.event_name == 'push' && github.event.ref == 'refs/heads/main'}}
