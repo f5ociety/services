@@ -16,7 +16,11 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
+<<<<<<< HEAD
 		  format: markdown
+=======
+          format: markdown
+>>>>>>> 3b0dac9 (change on markdown v2)
           message: |
             ⚡️ ${{ github.actor }} сделал коммит:
 
@@ -25,7 +29,15 @@ jobs:
             ```
             
             ${{ github.event.commits[0].message }}
+<<<<<<< HEAD
             
             Изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
             
             Репозиторий: https://github.com/${{ github.repository }}
+=======
+            ```
+
+            Изменения: ![Ссылка](https://github.com/${{ github.repository }}/commit/${{github.sha}})
+
+            Репозиторий: ![${{ github.repository }}](https://github.com/${{ github.repository }})
+>>>>>>> 3b0dac9 (change on markdown v2)
