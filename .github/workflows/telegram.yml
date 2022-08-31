@@ -20,12 +20,12 @@ jobs:
           message: |
             ⚡️ ${{ github.actor }} сделал коммит:
 
-            ```python
+            ```
             pre-formatted fixed-width code block written in the Python programming language
             ```
-            
+
             ${{ github.event.commits[0].message }}
-            
+
             Изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
-            
+
             Репозиторий: https://github.com/${{ github.repository }}
