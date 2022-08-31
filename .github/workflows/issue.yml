@@ -25,7 +25,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            ${{ github.repository }}
+            Репозиторий: [${{ github.repository }}](https://github.com/${{ github.repository }})
             🗣 Комментарий от @${{ github.event.comment.user.login }} в [${{ github.event.issue.title }}](${{ github.event.issue.html_url }}) - ${{ github.event.comment.body }}
           
       - name: Notify about new issue
@@ -36,7 +36,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            ${{ github.repository }}
+            Репозиторий: [${{ github.repository }}](https://github.com/${{ github.repository }})
             👾 Задач привалило - [${{ github.event.issue.title }}](${{ github.event.issue.html_url }}) от @${{ github.event.issue.user.login }}
           
       - name: Notify about issue closed
@@ -47,7 +47,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            ${{ github.repository }}
+            Репозиторий: [${{ github.repository }}](https://github.com/${{ github.repository }})
             ✅ Задача закрыта - [${{ github.event.issue.title }}](${{ github.event.issue.html_url }})
           
       - name: Notify about issue reopen
@@ -58,7 +58,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            ${{ github.repository }}
+            Репозиторий: [${{ github.repository }}](https://github.com/${{ github.repository }})
             ♻️ Что-то не доделали в задаче, снова открыта - [${{ github.event.issue.title }}](${{ github.event.issue.html_url }})
           
       - name: Notify about PR open
@@ -69,7 +69,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            ${{ github.repository }}
+            Репозиторий: [${{ github.repository }}](https://github.com/${{ github.repository }})
             🛠 @${{ github.event.pull_request.user.login}} прислал новый PR - [${{ github.event.pull_request.title}}](${{ github.event.pull_request.html_url}})
           
       - name: Notify about PR ready for review
@@ -80,7 +80,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            ${{ github.repository }}
+            Репозиторий: [${{ github.repository }}](https://github.com/${{ github.repository }})
             ✅ PR [${{ github.event.pull_request.title}}](${{ github.event.pull_request.html_url}}) готов к просмотру
           
       - name: Notify about PR open
@@ -91,7 +91,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            ${{ github.repository }}
+            Репозиторий: [${{ github.repository }}](https://github.com/${{ github.repository }})
             ❗️ Требуется ревью для PR: - [${{ github.event.pull_request.title}}](${{ github.event.pull_request.html_url}})
           
       - name: Notify about push in main
@@ -102,5 +102,5 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
-            ${{ github.repository }}
+            Репозиторий: [${{ github.repository }}](https://github.com/${{ github.repository }})
             💚 Пуш в мастере от @${{ github.event.head_commit.author.username}} - [${{ github.event.head_commit.message}}](${{ github.event.head_commit.url}}
