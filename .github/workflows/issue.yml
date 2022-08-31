@@ -24,7 +24,9 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
-          message: 🗣 Комментарий от @${{ github.event.comment.user.login }} в [${{ github.event.issue.title }}](${{ github.event.issue.html_url }}) - ${{ github.event.comment.body }}
+          message: |
+            ${{ github.repository }}
+            🗣 Комментарий от @${{ github.event.comment.user.login }} в [${{ github.event.issue.title }}](${{ github.event.issue.html_url }}) - ${{ github.event.comment.body }}
           
       - name: Notify about new issue
         if: ${{ github.event_name == 'issues' && github.event.action == 'opened'}}
@@ -33,7 +35,9 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
-          message: 👾 Задач привалило - [${{ github.event.issue.title }}](${{ github.event.issue.html_url }}) от @${{ github.event.issue.user.login }}
+          message: |
+            ${{ github.repository }}
+            👾 Задач привалило - [${{ github.event.issue.title }}](${{ github.event.issue.html_url }}) от @${{ github.event.issue.user.login }}
           
       - name: Notify about issue closed
         if: ${{ github.event_name == 'issues' && github.event.action == 'closed'}}
@@ -42,7 +46,9 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
-          message: ✅ Задача закрыта - [${{ github.event.issue.title }}](${{ github.event.issue.html_url }})
+          message: |
+            ${{ github.repository }}
+            ✅ Задача закрыта - [${{ github.event.issue.title }}](${{ github.event.issue.html_url }})
           
       - name: Notify about issue reopen
         if: ${{ github.event_name == 'issues' && github.event.action == 'reopened'}}
@@ -51,7 +57,9 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
-          message: ♻️ Что-то не доделали в задаче, снова открыта - [${{ github.event.issue.title }}](${{ github.event.issue.html_url }})
+          message: |
+            ${{ github.repository }}
+            ♻️ Что-то не доделали в задаче, снова открыта - [${{ github.event.issue.title }}](${{ github.event.issue.html_url }})
           
       - name: Notify about PR open
         if: ${{ github.event_name == 'pull_request' && (github.event.action == 'opened' || github.event.action == 'reopened') }}
@@ -60,7 +68,9 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
-          message: 🛠 @${{ github.event.pull_request.user.login}} прислал новый PR - [${{ github.event.pull_request.title}}](${{ github.event.pull_request.html_url}})
+          message: |
+            ${{ github.repository }}
+            🛠 @${{ github.event.pull_request.user.login}} прислал новый PR - [${{ github.event.pull_request.title}}](${{ github.event.pull_request.html_url}})
           
       - name: Notify about PR ready for review
         if: ${{ github.event_name == 'pull_request' && github.event.action == 'ready_for_review'}}
@@ -69,7 +79,9 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
-          message: ✅ PR [${{ github.event.pull_request.title}}](${{ github.event.pull_request.html_url}}) готов к просмотру
+          message: |
+            ${{ github.repository }}
+            ✅ PR [${{ github.event.pull_request.title}}](${{ github.event.pull_request.html_url}}) готов к просмотру
           
       - name: Notify about PR open
         if: ${{ github.event_name == 'pull_request' && github.event.action == 'review_requested'}}
@@ -79,6 +91,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
           message: |
+            ${{ github.repository }}
             ❗️ Требуется ревью для PR: - [${{ github.event.pull_request.title}}](${{ github.event.pull_request.html_url}})
           
       - name: Notify about push in main
@@ -88,4 +101,6 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
-          message: 💚 Пуш в мастере от @${{ github.event.head_commit.author.username}} - [${{ github.event.head_commit.message}}](${{ github.event.head_commit.url}}
+          message: |
+            ${{ github.repository }}
+            💚 Пуш в мастере от @${{ github.event.head_commit.author.username}} - [${{ github.event.head_commit.message}}](${{ github.event.head_commit.url}}
