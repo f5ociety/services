@@ -24,6 +24,6 @@ jobs:
             ${{ github.event.commits[0].message }}
             ```
 
-            Изменения: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            Изменения: ![Ссылка](https://github.com/${{ github.repository }}/commit/${{github.sha}})
 
-            Репозиторий: https://github.com/${{ github.repository }}
+            Репозиторий: ![${{ github.repository }}](https://github.com/${{ github.repository }})
