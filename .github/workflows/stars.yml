@@ -1,20 +1,16 @@
-name: telegram message
+name: watch-started
 on:
   watch:
     types: [started]
 
-
 jobs:
-
-  telegram:
-    name: telegram
+  notify:
     runs-on: ubuntu-latest
+
     steps:
-      - name: send telegram message on push
-        uses: appleboy/telegram-action@master
+      - uses: appleboy/telegram-action@0.0.7
         with:
-          to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-		  format: markdown
-          message: |
-            🌟 Новая звезда
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          format: markdown
+          message: ${{ github.repository }} starred!
